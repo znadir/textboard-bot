@@ -107,8 +107,6 @@ def connect_and_send():
                     y += Y_INIT
                     send_message(websocket, x, y, val)
                     time.sleep(MESSAGE_DELAY_SECOND)
-        except KeyboardInterrupt:
-            exit()
         except Exception as e:
             substract_counter()
             print(f"thread error. {str(e)}")
