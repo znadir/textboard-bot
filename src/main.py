@@ -68,6 +68,8 @@ def get_ascii_vals():
 
 
 def substract_counter():
+    global index_lock
+
     with index_lock:
         index_counter -= 1
 
