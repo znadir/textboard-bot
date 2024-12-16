@@ -42,7 +42,19 @@ pip install -r requirements.txt
 ## Utilisation
 
 1. **Configuration** :
-   Ouvrez le fichier `main.py` et configurez les variables nécessaires, notamment votre **token JWT**,que vous pouvez récupérer depuis vos cookies de navigateur.
+
+   Créez un fichier `.env` à l'extérieur du dossier `src` et ajoutez-y les variables suivantes :
+
+   ```env
+   X_INIT=-694               # Variable X
+   Y_INIT=-699               # Variable Y
+
+   TOKEN_JWT="SECRET"        # Token JWT - ne jamais partager
+   WS_TIMEOUT=4              # Temps de timeout WebSocket
+   MESSAGE_DELAY_SECOND=0.03 # Délai des messages en secondes
+
+   ASCII_ART=""              # Votre art ASCI
+   ```
 
 2. **Exécution** :
    Lancez le bot avec la commande suivante :

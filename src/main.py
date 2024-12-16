@@ -3,40 +3,25 @@ import json
 import time
 import threading
 import concurrent.futures
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
+
+try:
+    X_INIT = int(config.get("X_INIT"))
+    Y_INIT = int(config.get("Y_INIT"))
+
+    TOKEN_JWT = config.get("TOKEN_JWT")
+    WS_TIMEOUT = float(config.get("WS_TIMEOUT"))
+    MESSAGE_DELAY_SECOND = float(config.get("MESSAGE_DELAY_SECOND"))
+
+    ASCII_ART = config.get("ASCII_ART")
+except TypeError:
+    print("Erreur: Assurez-vous de configurer un fichier .env")
+    exit(1)
 
 # Une connexion permise par compte, donc laissez a 1 thread
 THREADS = 1
-
-# VOS COORDONNÉES
-X_INIT = -694
-Y_INIT = -699
-
-TOKEN_JWT = "VOTRE_TOKEN_ICI"
-WS_TIMEOUT = 4  # timeout operations websocket
-MESSAGE_DELAY_SECOND = 0.05
-
-ASCII_ART = """
-        _
-    __-/ \_                   _________
-   /       \                _/   \  \  \\_
-  /         |/\            /              \
- /             \          /|               \
- /   _          |         |                 |
-|   / \_   /--\ \         \                 |
-|  /    \//   \ |          \|_\_\\\         /
-\ /            \|           /      \       |
- \|   -_   _-   H          /        \      |
- \|   -=  |=-   |          |    _   \      /
-  C    _  \_    D          |  _/    |     |
-  |   (n| |h)  |           |\/%/    |     /
-   \    \_/    /           k|Y       \/\ |
-   |          /            /_         '% /
-    \ (--==-) |           /_>}          \|
-     \       /              |____/^|    /
-      \  __ /              __ii++-/     |
-       |    |               \     _     /
-       |    |               |___-- \    |
-       |    |                       |   |"""
 
 index_counter = 0
 index_lock = threading.Lock()
