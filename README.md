@@ -55,8 +55,13 @@ pip install -r requirements.txt
 
    ASCII_ART=""              # Votre art ASCI
    ```
+   2. **Configuration** :
 
-2. **Exécution** :
+   Trouver votre Token :
+
+   Faite **Ctrl+Shift+I** puis allez dans network et chercher votre token de login
+
+". **Exécution** :
    Lancez le bot avec la commande suivante :
 
 ```bash
